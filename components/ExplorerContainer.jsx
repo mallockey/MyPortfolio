@@ -142,7 +142,7 @@ const ExplorerContainer = (props) => {
         {!projectFolderShow ? 
           <div className="allProjects">
             {projects.map(project => {
-              return <ProjectList project={project} onDoubleClick={handleDblClick} onClick={handleSglClick} />
+              return <ProjectList key={Math.random()} project={project} onDoubleClick={handleDblClick} onClick={handleSglClick} />
             })}
           </div>
           : 

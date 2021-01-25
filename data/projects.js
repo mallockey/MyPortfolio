@@ -36,8 +36,8 @@ module.exports = [
     type: 'React App',
     size: '110mb',
     description : 'A list of all my projects styled after Windows Explorer!. <br><br> Notable Features/Tech Used: <ul><li>Flexbox</li><li>React Hooks</li><li>Tailwind CSS</li><li>Next JS</li></ul>',
-    link : 'https://frontendhappyhour-clone.herokuapp.com/',
-    code: 'https://github.com/mallockey/frontendhappyhour-clone'
+    link : 'https://joshuamelo.vercel.app/',
+    code: 'https://github.com/mallockey/myportfolio'
   },
   {
     id: 'getAlbumsFromWiki',

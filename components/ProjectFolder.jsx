@@ -9,7 +9,7 @@ const ProjectFolder = (props) => {
       <img className="w-8 mr-2" src="./images/icons/folderopened_yellow.ico" ></img>
       <span>. . </span>
       </div>
-      <div searchPhrase='Live Site' className="hover:bg-gray-400">
+      <div className="hover:bg-gray-400">
         <a href={props.selectedProject.link} target="_blank" >
         <div className="flex items-center">
           <img className="w-4 m-2" src="./images/tech/chrome.png" ></img>
@@ -17,7 +17,7 @@ const ProjectFolder = (props) => {
         </div>
         </a>
       </div>
-      <div searchPhrase='Code' className="hover:bg-gray-400">
+      <div className="hover:bg-gray-400">
         <a href={props.selectedProject.code} target="_blank" >
         <div className="flex items-center">
           <img className="w-4 m-2" src="./images/githubLight.png"></img>
@@ -25,7 +25,7 @@ const ProjectFolder = (props) => {
         </div>
         </a>
       </div>
-      <div searchPhrase='Description' className="hover:bg-gray-400" onClick={props.setShowDescription}>
+      <div className="hover:bg-gray-400" onClick={props.setShowDescription}>
         <div className="flex items-center">
           <img className="w-4 m-2" src="./images/icons/notepad.ico" ></img>
           <span>Description</span>
