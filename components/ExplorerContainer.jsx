@@ -36,7 +36,7 @@ const ExplorerContainer = (props) => {
   }
   return(
     <div className="flex flex-col text-white w-full h-full relative">
-    <div id="toolbar" className=" bg-gray-600 flex justify-between">
+    <div id="toolbar" className=" bg-gray-600 flex justify-between sm: h-12">
       <div className="flex items-center">
         <img className="w-8 p-2" src="./images/tech/vscode.png"></img>
         <span>Open Folder</span>
@@ -45,9 +45,9 @@ const ExplorerContainer = (props) => {
         <img className="icon hover:bg-red-600" src="./images/icons/icon-close.svg"></img>
       </div>
     </div>
-    <div id="folderLocation" className="flex bg-gray-700 p-2 items-center">
-      <img className="w-8 h-8 mr-2" src="./images/icons/back.png" onClick={handleGoBack}></img>
-      <div className=" flex border border-gray-400  w-3/4">
+    <div id="folderLocation" className="flex bg-gray-700 p-2 items-center sm:p-4 ">
+      <img className="sm:hidden w-8 h-8 mr-2" src="./images/icons/back.png" onClick={handleGoBack}></img>
+      <div className=" flex border border-gray-400  w-3/4 sm:w-full">
         <img className="w-8 ml-2" src="./images/icons/icon-folder.svg"></img>
         <span className="sm:w-full w-1/3 p-2 flex justify-evenly items-center">
           <span>This PC</span>
@@ -156,7 +156,7 @@ const ExplorerContainer = (props) => {
     </div>
     <div id="footer" className="bg-gray-600 flex p-8 justify-end">
       <span>Folder:</span>
-      <div className=" flex border border-gray-400  w-2/3 pl-2 ml-2">
+      <div className=" flex border border-gray-400  w-2/3 pl-2 ml-2 sm:h-8">
         {selectedProject ? selectedProject.title : 'Projects'}
       </div>
     </div>

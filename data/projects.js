@@ -21,7 +21,7 @@ module.exports = [
   },
   {
     id: 'frontEndHappyHourFolder',
-    title: 'Front End Happy Hour - Clone',
+    title: 'FEHH - Clone',
     date: 'December, 2020',
     type: 'React App',
     size: '150mb',
