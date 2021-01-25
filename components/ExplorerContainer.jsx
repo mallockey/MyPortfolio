@@ -49,7 +49,7 @@ const ExplorerContainer = (props) => {
       <img className="w-8 h-8 mr-2" src="./images/icons/back.png" onClick={handleGoBack}></img>
       <div className=" flex border border-gray-400  w-3/4">
         <img className="w-8 ml-2" src="./images/icons/icon-folder.svg"></img>
-        <span className="w-1/3 p-2 flex justify-evenly items-center">
+        <span className="sm:w-full w-1/3 p-2 flex justify-evenly items-center">
           <span>This PC</span>
           <span>{'>'}</span>
           <span>Projects</span>
@@ -60,27 +60,27 @@ const ExplorerContainer = (props) => {
             </>
             :  ''}
           </span>
-          <div className="flex justify-end w-full">
+          <div className="flex justify-end w-full sm:w-8">
             <img className="icon" src="./images/icons/icon-cheveron-down.svg"></img>
           </div>
       </div>
-      <div id="searchBar" className="p-1 flex items-center border border-gray-400 flex-1">
+      <div id="searchBar" className="p-1 flex items-center border border-gray-400 flex-1 sm:hidden">
         <img className="icon" src="./images/icons/icon-search.svg"></img>
         <input id="searchInput" className="bg-gray-800 " type="text" placeholder={selectedProject ? selectedProject.title : 'Projects'}></input>
       </div>
     </div>
     <div id="newFolder" className="flex bg-gray-600 p-2 justify-between">
       <div id="organizeAndNewFolder" className="flex items-center">
-        <span className="m-1">Organize</span>
+        <span className="sm:hidden m-1">Organize</span>
         <span className="m-1">New Folder</span>
       </div>
       <div id="folderView" className="flex items-center">
         <span className="m-1">Organize</span>
-        <span className="m-1">New Folder</span>
+        <span className="m-1 sm:hidden">New Folder</span>
       </div>
     </div>
     <div id="mainContainer" className="flex h-full">
-      <div id="folderBrowserLeft" className="w-1/5 bg-gray-700 pl-2 border-r">
+      <div id="folderBrowserLeft" className="w-1/5 bg-gray-700 pl-2 border-r sm:hidden">
         <ul className="p-1">
           <li className="flex items-center">
           <img className="icon" src="./images/icons/icon-clouds.svg"></img>
@@ -133,14 +133,14 @@ const ExplorerContainer = (props) => {
           </ul>
       </div>
       <div id="mainFolderArea" ref={mainViewRef} className="w-full bg-gray-700">
-        <div id="toolbar" className="flex justify-evenly w-2/3 pb-2">
-          <span className="w-4/12 pl-2">Folder</span>
-          <span className="border-l pl-2 w-4/12  ">Date Modified</span>
-          <span className="border-l pl-2 w-4/12 ">Type</span>
-          <span className="border-l pl-2 w-4/12 ">Size</span>
+        <div id="toolbar" className="sm:w-full sm:border-b flex justify-evenly w-2/3 pb-2">
+          <span className="sm:w-1/2 sm:p-0 w-4/12 pl-2">Folder</span>
+          <span className="sm:hidden border-l pl-2 w-4/12   ">Date Modified</span>
+          <span className="sm:border-0 sm:w-1/2 sm:flex sm:justify-center border-l pl-2 w-4/12  ">Type</span>
+          <span className="sm:hidden border-l pl-2 w-4/12   ">Size</span>
         </div>
         {!projectFolderShow ? 
-          <div className="allProjects">
+          <div className="allProjects sm:h-full">
             {projects.map(project => {
               return <ProjectList key={Math.random()} project={project} onDoubleClick={handleDblClick} onClick={handleSglClick} />
             })}
