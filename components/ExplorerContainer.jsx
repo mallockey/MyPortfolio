@@ -63,7 +63,7 @@ const ExplorerContainer = (props) => {
       <div id="folderLocation" className="flex bg-gray-700 p-2 items-center sm:p-4 ">
         <img
           className="sm:hidden w-8 h-8 mr-2"
-          src="./images/icons/back.png"
+          src="./images/icons/arrow_left.ico"
           onClick={handleGoBack}
         ></img>
         <div className=" flex border border-gray-400  w-3/4 sm:w-full">
@@ -91,7 +91,7 @@ const ExplorerContainer = (props) => {
           id="searchBar"
           className="p-1 flex items-center border border-gray-400 flex-1 sm:hidden"
         >
-          <img className="icon" src="./images/icons/icon-search.svg"></img>
+          <img className="icon" src="./images/icons/search.ico"></img>
           <input
             id="searchInput"
             className="bg-gray-800 w-full "
