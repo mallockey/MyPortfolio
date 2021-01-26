@@ -13,14 +13,14 @@ const ProjectFolder = (props) => {
       <div id="goBack" className="hover:bg-gray-400 flex items-center sm:p-4 " 
            onClick={(event) => {return handleSingleClick(event,document.getElementById("singleProjectContainer"))}} 
            onDoubleClick={props.goBack}>
-        <img className="sm:hidden w-4 m-2" src="./images/icons/folderopened_yellow.ico" ></img>
+        <img className="w-8 m-2" src="./images/icons/folderopened_yellow.ico" ></img>
         <span>. . </span>
       </div>
       <div id="liveSite" className="hover:bg-gray-400 sm:p-4 "  
            onClick={(event) => {return handleSingleClick(event,document.getElementById("singleProjectContainer"))}} 
            onDoubleClick={() => {handleDblClick(props.selectedProject.link)}} >
         <div className="flex items-center">
-          <img className="w-4 m-2 sm:w-8 sm:text-md" src="./images/tech/chrome.png" ></img>
+          <img className="w-8 m-2 sm:w-8 sm:text-md" src="./images/tech/chrome.png" ></img>
           <span>Live Site</span>
         </div>
       </div>
@@ -28,7 +28,7 @@ const ProjectFolder = (props) => {
            onClick={(event) => {return handleSingleClick(event,document.getElementById("singleProjectContainer"))}} 
            onDoubleClick={() => {handleDblClick(props.selectedProject.code)}} >
         <div className="flex items-center">
-          <img className="w-4 m-2 sm:w-8 sm:text-md" src="./images/githubLight.png"></img>
+          <img className="w-8 m-2 sm:w-8 sm:text-md" src="./images/githubLight.png"></img>
           <span>Code</span>
         </div>
       </div>
@@ -37,7 +37,7 @@ const ProjectFolder = (props) => {
            onDoubleClick={(event) => {props.setShowDescription(event)}}
            >
         <div className="flex items-center">
-          <img className="w-4 m-2 sm:w-8 sm:text-md" src="./images/icons/notepad.ico" ></img>
+          <img className="w-8 m-2 sm:w-8 sm:text-md" src="./images/icons/notepad.ico" ></img>
           <span>Description</span>
         </div>
       </button>

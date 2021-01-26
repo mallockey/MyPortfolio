@@ -5,7 +5,7 @@ function handleSingleClick(event,containerEle){
     validDivs.push(containerEle.children[i])
   }
 
-  for(let i = 0; i <validDivs.length; i++){
+  for(let i = 0; i < validDivs.length; i++){
     if(validDivs[i] === undefined){
       continue
     }
@@ -15,6 +15,10 @@ function handleSingleClick(event,containerEle){
       validDivs[i].style.backgroundColor = ""
     }
   }
+}
+
+function handleLinkDblClick(link){
+  window.open(link,"_blank")
 }
 
 module.exports = {

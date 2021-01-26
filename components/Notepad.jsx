@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 
 const Notepad = (props) => {
   return(
-    <div id="notepad" className="sm:h-full sm:w-full absolute flex flex-col w-2/3 top-0 h-96 bg-white text-black">
+    <div id="notepad" className="sm:h-full sm:w-full absolute flex flex-col w-2/3 top-0 h-2/3 bg-white text-black">
       <div id="title" className="flex items-center justify-between">
         <div className="flex">
           <img className="icon sm:w-4 sm:h-4" src="./images/icons/notepad.jpg"></img>
