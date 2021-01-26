@@ -6,6 +6,24 @@ html, body {
   height: 100%;
   background-image: url('macos.jpg');
 }
+div { 
+  outline-style:none;
+}
+
+button:focus{
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+  outline: inherit;
+  cursor: inherit;
+}
+
+button {
+  cursor: inherit;
+}
+
 #__next {
   height: 100%;
   display: flex;
@@ -44,3 +62,12 @@ html, body {
 .notepadToolbarItem:hover {
   background-color: lightblue;
 }
+
+.allProjects {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+

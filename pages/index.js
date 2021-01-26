@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Joshua Melo - Portfolio</title>
       </Head>
       <ProjectsContainer />
     </>

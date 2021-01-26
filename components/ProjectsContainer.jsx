@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from 'next/head'
 import ExplorerContainer from "./ExplorerContainer";
 
@@ -6,8 +6,21 @@ const ProjectsContainer = () => {
   const [showExplorer, setShowExplorer] = useState(false)
   const [showDescription, setShowDescription] = useState(false)
 
-  function handleShowDescription(){
+  function handleShowDescription(event){
+    event.returnValue = false
     setShowDescription(!showDescription)
+    return false
+  }
+
+  function handleSglClick(event){
+    document.getElementById("myProjectsFolder").style.backgroundColor = "#9ca3af"
+    event.stopPropagation()
+    window.addEventListener("click", () => {
+      if(document.getElementById("myProjectsFolder")){
+        document.getElementById("myProjectsFolder").style.backgroundColor = ""
+      }
+    })
+
   }
 
   function handleDblClick(){
@@ -21,15 +34,15 @@ const ProjectsContainer = () => {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <div className="flex flex-col h-full">
-      <div id="allProjectsContainer" className=" flex items-center justify-center p-8 h-full sm:p-0">
+      <div id="allProjectsContainer" className=" flex items-center justify-center p-8 h-full  sm:p-0">
         {
           showExplorer ? 
             <ExplorerContainer remove={handleDblClick} 
                                showDescription={showDescription} 
                                setShowDescription={handleShowDescription} />
                               : 
-            <div className="text-white flex flex-col items-center justify-center" onDoubleClick={handleDblClick}>
-              <img  src="./images/icons/folderopened_yellow.ico"></img>
+            <div id="myProjectsFolder" className="text-white flex flex-col items-center justify-center" onClick={handleSglClick} onDoubleClick={handleDblClick}>
+              <img src="./images/icons/folderopened_yellow.ico"></img>
               <span className="text-lg">My Projects</span>
             </div>
         }
