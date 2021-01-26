@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Head from 'next/head'
 import ExplorerContainer from './ExplorerContainer'
 
 const ProjectsContainer = () => {
@@ -13,13 +12,13 @@ const ProjectsContainer = () => {
   }
 
   function handleSglClick(event) {
-    document.getElementById('myProjectsFolder').style.backgroundColor = 'rgba(000, 000, 000, 0.6)'
-    document.getElementById('myProjectsFolder').style.border = '1px'
-    document.getElementById('myProjectsFolder').style.borderColor = 'black'
-    document.getElementById('myProjectsFolder').style.borderRadius = '1rem'
-    document.getElementById('myProjectsFolder').style.borderStyle = 'solid'
-    document.getElementById('myProjectsFolder').style.padding = '1rem'
-    // document.getElementById('myProjectsFolder').style.opacity = '.5'
+    const myProjectsFolderEle = document.getElementById('myProjectsFolder')
+    myProjectsFolderEle.style.backgroundColor = 'rgba(000, 000, 000, 0.6)'
+    myProjectsFolderEle.style.border = '1px'
+    myProjectsFolderEle.style.borderColor = 'black'
+    myProjectsFolderEle.style.borderRadius = '1rem'
+    myProjectsFolderEle.style.borderStyle = 'solid'
+    myProjectsFolderEle.style.padding = '1rem'
     event.stopPropagation()
     window.addEventListener('click', () => {
       if (document.getElementById('myProjectsFolder')) {
