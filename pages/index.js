@@ -7,6 +7,7 @@ export default function Home() {
     <>
       <Head>
         <title>Joshua Melo - Portfolio</title>
+        <link rel="icon" href="/static/favicon.ico" />
       </Head>
       <ProjectsContainer />
     </>
