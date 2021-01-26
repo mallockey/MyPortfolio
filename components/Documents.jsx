@@ -23,7 +23,7 @@ const Documents = (props) => {
         }}
         onDoubleClick={() => {
           handleLinkDblClick(
-            'https://drive.google.com/file/d/1DtQJbebbfoi0R_7nptHPoQGw8eo7B2hs/view?usp=sharing',
+            'https://docs.google.com/document/d/1kMzTsk53F9mfNpbOS-a1Y1Xa1NIbh8DZJf8Bey6d9j8',
           )
         }}
       >
@@ -36,4 +36,4 @@ const Documents = (props) => {
   )
 }
 
-export default Documents;
+export default Documents
