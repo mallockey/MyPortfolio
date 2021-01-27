@@ -96,23 +96,25 @@ const ExplorerContainer = (props) => {
             id="searchInput"
             className="bg-gray-800 w-full "
             type="text"
-            placeholder={selectedProject ? selectedProject.title : 'Projects'}
+            placeholder={
+              selectedProject && !showDocuments && !showProjects
+                ? selectedProject.title
+                : !showProjects && !selectedProject && showDocuments
+                ? 'Documents'
+                : 'Projects'
+            }
           ></input>
         </div>
       </div>
       <div id="newFolder" className="flex bg-gray-600 p-2 justify-between">
         <div id="organizeAndNewFolder" className="flex items-center">
           <span className="sm:hidden m-1">Organize</span>
-          {isMobile ? (
-            <li className="folderList" onClick={setCurrentFolder}>
-              <img className="icon" src="./images/icons/folder.ico"></img>
-              <span id="documentsTop" className="p-2">
-                Documents
-              </span>
-            </li>
-          ) : (
-            <span className="m-1">New Folder</span>
-          )}
+          <li className="folderList" onClick={setCurrentFolder}>
+            <img className="icon" src="./images/icons/folder.ico"></img>
+            <span id="documentsTop" className="p-2">
+              Documents
+            </span>
+          </li>
         </div>
         <div id="folderView" className="flex items-center">
           <span className="m-1">Organize</span>

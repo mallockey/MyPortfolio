@@ -32,6 +32,36 @@ const Documents = (props) => {
           <span className="">Resume</span>
         </div>
       </div>
+      <div
+        id="linkedIn"
+        className="hover:bg-gray-400 sm:p-4 "
+        onClick={(event) => {
+          return handleSingleClick(event, document.getElementById('documentsContainer'))
+        }}
+        onDoubleClick={() => {
+          handleLinkDblClick('https://www.linkedin.com/in/joshuamelo1/')
+        }}
+      >
+        <div className="flex items-center">
+          <img className="w-8 m-2 sm:w-8 sm:text-md" src="./images/linkedin.svg"></img>
+          <span className="">LinkedIn</span>
+        </div>
+      </div>
+      <div
+        id="linkedIn"
+        className="hover:bg-gray-400 sm:p-4 "
+        onClick={(event) => {
+          return handleSingleClick(event, document.getElementById('documentsContainer'))
+        }}
+        onDoubleClick={() => {
+          handleLinkDblClick('https://github.com/mallockey')
+        }}
+      >
+        <div className="flex items-center">
+          <img className="w-8 m-2 sm:w-8 sm:text-md" src="./images/githubLight.png"></img>
+          <span className="">Github</span>
+        </div>
+      </div>
     </div>
   )
 }
