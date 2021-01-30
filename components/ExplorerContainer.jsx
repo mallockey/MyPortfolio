@@ -74,13 +74,18 @@ const ExplorerContainer = (props) => {
             <span className="hover:bg-gray-400" onClick={handleGoBack}>
               Projects
             </span>
-            {selectedProject ? (
+            {selectedProject && !showDocuments && !showProjects ? (
               <>
                 <span>{'>'}</span>
                 <span>{selectedProject.title}</span>
               </>
-            ) : (
+            ) : !showDocuments && !selectedProject && showProjects ? (
               ''
+            ) : (
+              <>
+                <span>{'>'}</span>
+                <span>Documents</span>
+              </>
             )}
           </span>
           <div className="flex justify-end w-full sm:w-8">
