@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ExplorerContainer from './ExplorerContainer'
 
-const ProjectsContainer = () => {
+const Main = () => {
   const [showExplorer, setShowExplorer] = useState(false)
   const [showDescription, setShowDescription] = useState(false)
 
@@ -65,4 +65,4 @@ const ProjectsContainer = () => {
   )
 }
 
-export default ProjectsContainer
+export default Main

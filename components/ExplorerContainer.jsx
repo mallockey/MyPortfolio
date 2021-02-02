@@ -1,29 +1,54 @@
 import React, { useState } from 'react'
 import ProjectFolder from './ProjectFolder'
-import Documents from './Documents'
+import ToolBar from './ToolBar'
+import DocumentsContainer from './DocumentsContainer'
 import projectInfo from '../data/projects'
 import projects from '../data/projects'
 import ProjectList from './ProjectList'
-import { handleSingleClick } from '../utils/functions'
-import { isMobile } from 'react-device-detect'
+import { handleSingleClick, clearSearchResults } from '../utils/functions'
+import LeftSidePanel from './LeftSidePanel'
 
 const ExplorerContainer = (props) => {
-  const [projectFolderShow, setProjectFolderShow] = useState(false)
   const [selectedProject, setSelectedProject] = useState(false)
-  const [showDocuments, setShowDocuments] = useState(false)
-  const [showProjects, setShowProjects] = useState(true)
+  const [showState, setShowState] = useState({
+    showAllProjects: true,
+    showDocuments: false,
+    showSelectedProject: false,
+  })
+
+  function handleSearchChange(event) {
+    let searchableItemsElements = document.getElementsByClassName('searchAble')
+    let testsearchableItemsElements = Array.from(searchableItemsElements)
+
+    console.log(searchableItemsElements)
+    let searchResults = testsearchableItemsElements.filter((item) =>
+      item.getAttribute('searchterm').toLowerCase().includes(event.target.value.toLowerCase()),
+    )
+    for (let i = 0; i < searchableItemsElements.length; i++) {
+      if (searchResults.includes(searchableItemsElements[i])) {
+        searchableItemsElements[i].style.display = 'flex'
+      } else {
+        searchableItemsElements[i].style.display = 'none'
+      }
+    }
+  }
 
   function setCurrentFolder(event) {
-    if (event.target.id === 'documents' || event.target.id === 'documentsTop') {
-      setShowDocuments(true)
-      setShowProjects(false)
-      setSelectedProject(false)
-      setProjectFolderShow(false)
-    } else if (event.target.id === 'projects') {
-      setShowProjects(true)
-      setShowDocuments(false)
-      setSelectedProject(false)
-      setProjectFolderShow(false)
+    if (
+      document.getElementById('documents').contains(event.target) ||
+      document.getElementById('documentsTop').contains(event.target)
+    ) {
+      setShowState({
+        showAllProjects: false,
+        showDocuments: true,
+        showSelectedProject: false,
+      })
+    } else if (document.getElementById('projects').contains(event.target)) {
+      setShowState({
+        showAllProjects: true,
+        showDocuments: false,
+        showSelectedProject: false,
+      })
     }
   }
 
@@ -37,16 +62,21 @@ const ExplorerContainer = (props) => {
     }
 
     setSelectedProject(temp[0])
-    setProjectFolderShow(!projectFolderShow)
-    setShowDocuments(false)
-    setShowProjects(false)
+    setShowState({
+      showAllProjects: false,
+      showDocuments: false,
+      showSelectedProject: true,
+    })
+    clearSearchResults()
   }
 
   function handleGoBack() {
-    setProjectFolderShow(false)
-    setSelectedProject(false)
-    setShowDocuments(false)
-    setShowProjects(true)
+    setShowState({
+      showAllProjects: true,
+      showDocuments: false,
+      showSelectedProject: false,
+    })
+    clearSearchResults()
   }
 
   return (
@@ -56,31 +86,40 @@ const ExplorerContainer = (props) => {
           <img className="w-8 p-2" src="./images/tech/vscode.png"></img>
           <span>Open Folder</span>
         </div>
-        <div onClick={props.remove}>
-          <img className="icon hover:bg-red-600" src="./images/icons/icon-close.svg"></img>
+        <div className="hover:bg-red-600 flex items-center justify-center w-16">
+          <div className="text-5xl transform rotate-45 cursor-pointer pb-3 " onClick={props.remove}>
+            +
+          </div>
         </div>
       </div>
-      <div id="folderLocation" className="flex bg-gray-700 p-2 items-center sm:p-4 ">
+      <div id="folderLocation" className="flex bg-gray-800 p-2 items-center sm:p-4 sm:flex-col ">
         <img
-          className="sm:hidden w-8 h-8 mr-2"
-          src="./images/icons/arrow_left.ico"
+          className="sm:hidden w-8 h-8 mr-2 p-1 hover:bg-gray-400"
+          src="./images/icons/left-round-xxl.png"
           onClick={handleGoBack}
         ></img>
         <div className=" flex border border-gray-400  w-3/4 sm:w-full">
           <img className=" sm:ml-0 sm:h-10 w-8 ml-2" src="./images/icons/folder.ico"></img>
-          <span className="sm:w-full w-1/3 p-2 flex justify-evenly items-center">
+          <span className="sm:w-full w-full p-2 flex justify-evenly items-center">
             <span>This PC</span>
-            <span>{'>'}</span>
-            <span className="hover:bg-gray-400" onClick={handleGoBack}>
-              Projects
-            </span>
-            {selectedProject && !showDocuments && !showProjects ? (
+            {showState.showSelectedProject &&
+            !showState.showDocuments &&
+            !showState.showAllProjects ? (
               <>
+                <span>{'>'}</span>
+                <span className="hover:bg-gray-400" onClick={handleGoBack}>
+                  Projects
+                </span>
                 <span>{'>'}</span>
                 <span>{selectedProject.title}</span>
               </>
-            ) : !showDocuments && !selectedProject && showProjects ? (
-              ''
+            ) : !showState.showDocuments &&
+              !showState.showSelectedProject &&
+              showState.showAllProjects ? (
+              <>
+                <span>{'>'}</span>
+                <span>Projects</span>
+              </>
             ) : (
               <>
                 <span>{'>'}</span>
@@ -94,17 +133,18 @@ const ExplorerContainer = (props) => {
         </div>
         <div
           id="searchBar"
-          className="p-1 flex items-center border border-gray-400 flex-1 sm:hidden"
+          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1"
         >
-          <img className="icon" src="./images/icons/search.ico"></img>
+          <img className="icon p-1.5" src="./images/icons/search.ico"></img>
           <input
             id="searchInput"
-            className="bg-gray-800 w-full "
+            className="bg-gray-800 w-full h-full "
+            onChange={handleSearchChange}
             type="text"
             placeholder={
-              selectedProject && !showDocuments && !showProjects
+              selectedProject && !showState.showDocuments && !showState.showAllProjects
                 ? selectedProject.title
-                : !showProjects && !selectedProject && showDocuments
+                : !showState.showProjects && !selectedProject && showState.showDocuments
                 ? 'Documents'
                 : 'Projects'
             }
@@ -114,12 +154,10 @@ const ExplorerContainer = (props) => {
       <div id="newFolder" className="flex bg-gray-600 p-2 justify-between">
         <div id="organizeAndNewFolder" className="flex items-center">
           <span className="sm:hidden m-1">Organize</span>
-          <li className="folderList" onClick={setCurrentFolder}>
+          <div id="documentsTop" className="folderList" onClick={setCurrentFolder}>
             <img className="icon" src="./images/icons/folder.ico"></img>
-            <span id="documentsTop" className="p-2">
-              Documents
-            </span>
-          </li>
+            <span className="p-2">Documents</span>
+          </div>
         </div>
         <div id="folderView" className="flex items-center">
           <span className="m-1">Organize</span>
@@ -127,64 +165,16 @@ const ExplorerContainer = (props) => {
         </div>
       </div>
       <div id="mainContainer" className="flex h-full">
-        <div id="folderBrowserLeft" className="w-1/5 bg-gray-700 pl-2 border-r sm:hidden">
-          <ul className="p-1">
-            <li className="flex items-center">
-              <img className="icon" src="./images/icons/cloud.ico"></img>
-              <span id="unoDrive" className="p-2">
-                UnoDrive
-              </span>
-            </li>
-            <li id="documents" className="folderList" onClick={setCurrentFolder}>
-              <img className="icon" src="./images/icons/folder.ico"></img>
-              <span className="p-2">Documents</span>
-            </li>
-            <li id="projects" className="folderList" onClick={setCurrentFolder}>
-              <img className="icon" src="./images/icons/folder.ico"></img>
-              <span className="p-2">Projects</span>
-            </li>
-          </ul>
-          <ul className=" p-2">
-            <li className="flex items-center">
-              <img className="icon" src="./images/icons/mycomputer.ico"></img>
-              <span className="p-2">This PC</span>
-            </li>
-            <li className="folderList  p-2">
-              <img className="icon" src="./images/icons/monitor.ico"></img>
-              <span className="p-2">Desktop</span>
-            </li>
-            <li className="folderList  p-2">
-              <img className="icon" src="./images/icons/mes_videos.ico"></img>
-              <span className="p-2">Videos</span>
-            </li>
-            <li className="folderList  p-2">
-              <img className="icon" src="./images/icons/harddrive.ico"></img>
-              <span className="p-2">OS (C:)</span>
-            </li>
-            <li className="folderList p-2">
-              <img className="icon" src="./images/icons/harddrive.ico"></img>
-              <span className="p-2">DATA (D:)</span>
-            </li>
-          </ul>
-          <ul className="p-1">
-            <li className="flex items-center  p-2">
-              <img className="icon" src="./images/icons/network.ico"></img>
-              <span>Network</span>
-            </li>
-          </ul>
-        </div>
-        <div id="mainFolderArea" className="w-full bg-gray-700">
-          <div id="toolbar" className="sm:w-full sm:border-b flex justify-evenly w-2/3 pb-2">
-            <span className="sm:w-1/2 sm:p-2 w-4/12 pl-2">Folder</span>
-            <span className="sm:hidden border-l pl-2 w-4/12   ">Date Modified</span>
-            <span className="sm:border-0 sm:w-1/2 sm:flex sm:justify-center sm:p-2 border-l pl-2 w-4/12  ">
-              Type
-            </span>
-            <span className="sm:hidden border-l pl-2 w-4/12   ">Size</span>
-          </div>
-          {showDocuments === true && showProjects === false && projectFolderShow === false ? (
-            <Documents goBack={handleGoBack} />
-          ) : showDocuments === false && showProjects === true && projectFolderShow === false ? (
+        <LeftSidePanel setCurrentFolder={setCurrentFolder} />
+        <div id="mainFolderArea" className="w-full bg-gray-800">
+          <ToolBar />
+          {showState.showDocuments === true &&
+          showState.showAllProjects === false &&
+          showState.showSelectedProject === false ? (
+            <DocumentsContainer backButton={handleGoBack} />
+          ) : showState.showDocuments === false &&
+            showState.showAllProjects === true &&
+            showState.showSelectedProject === false ? (
             <div id="allProjects" className="allProjects sm:h-full">
               {projects.map((project) => {
                 return (
@@ -199,7 +189,9 @@ const ExplorerContainer = (props) => {
                 )
               })}
             </div>
-          ) : showDocuments === false && showProjects === false && projectFolderShow === true ? (
+          ) : showState.showDocuments === false &&
+            showState.showAllProjects === false &&
+            showState.showSelectedProject === true ? (
             <div>
               <ProjectFolder
                 key={Math.random()}
@@ -214,10 +206,14 @@ const ExplorerContainer = (props) => {
           )}
         </div>
       </div>
-      <div id="footer" className="bg-gray-600 flex p-8 justify-end">
+      <div id="footer" className="bg-gray-600 flex items-center p-8 justify-end">
         <span>Folder:</span>
-        <div className=" flex border border-gray-400  w-2/3 pl-2 ml-2 sm:h-8">
-          {selectedProject ? selectedProject.title : 'Projects'}
+        <div className=" flex border border-gray-400 bg-gray-800 h-10 items-center  w-2/3 pl-2 ml-2 sm:h-8">
+          {selectedProject
+            ? selectedProject.title
+            : showState.showDocuments
+            ? 'Documents'
+            : 'Projects'}
         </div>
       </div>
     </div>

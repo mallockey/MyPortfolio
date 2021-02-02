@@ -4,10 +4,10 @@ import { handleSingleClick, handleLinkDblClick } from '../utils/functions'
 
 const ProjectFolder = (props) => {
   return (
-    <div id="singleProjectContainer" className="">
+    <div id="singleProjectContainer">
       <div
         id="goBack"
-        className="hover:bg-gray-400 flex items-center sm:p-4 "
+        className=" hover:bg-gray-400 flex items-center sm:p-4 "
         onClick={(event) => {
           return handleSingleClick(event, document.getElementById('singleProjectContainer'))
         }}
@@ -18,7 +18,8 @@ const ProjectFolder = (props) => {
       </div>
       <div
         id="liveSite"
-        className="hover:bg-gray-400 sm:p-4 "
+        searchterm="Live Site"
+        className="searchAble hover:bg-gray-400 sm:p-4 "
         onClick={(event) => {
           return handleSingleClick(event, document.getElementById('singleProjectContainer'))
         }}
@@ -33,7 +34,8 @@ const ProjectFolder = (props) => {
       </div>
       <div
         id="code"
-        className="hover:bg-gray-400 sm:p-4 "
+        searchterm="code"
+        className="searchAble hover:bg-gray-400 sm:p-4 "
         onClick={(event) => {
           return handleSingleClick(event, document.getElementById('singleProjectContainer'))
         }}
@@ -49,7 +51,8 @@ const ProjectFolder = (props) => {
       <button
         type="button"
         id="description"
-        className="hover:bg-gray-400 sm:p-4 w-full border-0 focus:outline-none"
+        searchterm="Description"
+        className="searchAble hover:bg-gray-400 sm:p-4 w-full border-0 focus:outline-none"
         onClick={(event) => {
           return handleSingleClick(event, document.getElementById('singleProjectContainer'))
         }}

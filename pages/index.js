@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ProjectsContainer from '../components/ProjectsContainer'
+import Main from '../components/Main'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
         <meta property="og:url" content="https://joshuamelo.vercel.app/" />
         <meta property="og:description" content="Joshua Melo's Perfolio site" />
       </Head>
-      <ProjectsContainer />
+      <Main />
     </>
   )
 }

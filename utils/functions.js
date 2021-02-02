@@ -18,9 +18,15 @@ function handleSingleClick(event, containerEle) {
 
 function handleLinkDblClick(link) {
   window.open(link, '_blank')
+  clearSearchResults()
+}
+
+function clearSearchResults() {
+  document.getElementById('searchInput').value = ''
 }
 
 module.exports = {
   handleSingleClick,
   handleLinkDblClick,
+  clearSearchResults,
 }
