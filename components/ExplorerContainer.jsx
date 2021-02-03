@@ -133,7 +133,7 @@ const ExplorerContainer = (props) => {
           <img className="icon p-1.5" src="./images/icons/search.ico"></img>
           <input
             id="searchInput"
-            className="bg-gray-800 w-full h-full "
+            className="bg-gray-800 w-full h-full sm:h-16 "
             onChange={handleSearchChange}
             type="text"
             placeholder={
