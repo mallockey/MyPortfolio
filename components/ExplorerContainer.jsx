@@ -93,7 +93,7 @@ const ExplorerContainer = (props) => {
           src="./images/icons/left-round-xxl.png"
           onClick={handleGoBack}
         ></img>
-        <div className=" flex border border-gray-400  w-3/4 sm:w-full">
+        <div className=" flex border border-gray-400  w-3/4 sm:w-full h-full">
           <img className=" sm:ml-0 sm:h-10 w-8 ml-2" src="./images/icons/folder.ico"></img>
           <span className="sm:w-full w-full p-2 flex justify-evenly items-center">
             <span>This PC</span>
@@ -128,7 +128,7 @@ const ExplorerContainer = (props) => {
         </div>
         <div
           id="searchBar"
-          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1 sm:h-16"
+          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1 "
         >
           <img className="icon p-1.5" src="./images/icons/search.ico"></img>
           <input
