@@ -87,7 +87,10 @@ const ExplorerContainer = (props) => {
           </div>
         </div>
       </div>
-      <div id="folderLocation" className="flex bg-gray-800 p-2 items-center sm:p-4 sm:flex-col ">
+      <div
+        id="folderLocation"
+        className="flex bg-gray-800 p-2 items-center sm:p-4 sm:flex-col sm:h-full "
+      >
         <img
           className="sm:hidden w-8 h-8 mr-2 p-1 hover:bg-gray-400"
           src="./images/icons/left-round-xxl.png"
