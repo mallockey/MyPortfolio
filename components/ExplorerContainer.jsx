@@ -76,7 +76,7 @@ const ExplorerContainer = (props) => {
 
   return (
     <div className="flex flex-col text-white w-full h-full relative">
-      <div id="toolbar" className=" bg-gray-600 flex justify-between sm: h-12">
+      <div id="toolbar" className=" bg-gray-600 flex justify-between sm:h-24 h-12">
         <div className="flex items-center">
           <img className="w-8 p-2" src="./images/tech/vscode.png"></img>
           <span>Open Folder</span>
@@ -87,10 +87,7 @@ const ExplorerContainer = (props) => {
           </div>
         </div>
       </div>
-      <div
-        id="folderLocation"
-        className="flex bg-gray-800 p-2 items-center sm:p-4 sm:flex-col sm:h-full "
-      >
+      <div id="folderLocation" className="flex bg-gray-800 p-2 items-center sm:p-4 sm:flex-col ">
         <img
           className="sm:hidden w-8 h-8 mr-2 p-1 hover:bg-gray-400"
           src="./images/icons/left-round-xxl.png"
@@ -131,12 +128,12 @@ const ExplorerContainer = (props) => {
         </div>
         <div
           id="searchBar"
-          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1 "
+          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1 sm:h-16 "
         >
           <img className="icon p-1.5" src="./images/icons/search.ico"></img>
           <input
             id="searchInput"
-            className="bg-gray-800 w-full h-full sm:h-16 "
+            className="bg-gray-800 w-full h-full sm:h-8 "
             onChange={handleSearchChange}
             type="text"
             placeholder={
@@ -164,7 +161,7 @@ const ExplorerContainer = (props) => {
       </div>
       <div id="mainContainer" className="flex h-full">
         <LeftSidePanel setCurrentFolder={setCurrentFolder} />
-        <div id="mainFolderArea" className="w-full bg-gray-800">
+        <div id="mainFolderArea" className="w-full h-full bg-gray-800">
           <ToolBar />
           {showState.showDocuments === true &&
           showState.showAllProjects === false &&
@@ -173,7 +170,7 @@ const ExplorerContainer = (props) => {
           ) : showState.showDocuments === false &&
             showState.showAllProjects === true &&
             showState.showSelectedProject === false ? (
-            <div id="allProjects" className="allProjects sm:h-full">
+            <div id="allProjects" className="allProjects sm:h-full sm:pb-20">
               {projects.map((project) => {
                 return (
                   <ProjectListItem
@@ -204,7 +201,7 @@ const ExplorerContainer = (props) => {
           )}
         </div>
       </div>
-      <div id="footer" className="bg-gray-600 flex items-center p-8 justify-end">
+      <div id="footer" className="bg-gray-600 flex items-center p-4 justify-end">
         <span>Folder:</span>
         <div className=" flex border border-gray-400 bg-gray-800 h-10 items-center  w-2/3 pl-2 ml-2 sm:h-8">
           {selectedProject
