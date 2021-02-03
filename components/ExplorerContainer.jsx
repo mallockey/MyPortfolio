@@ -94,7 +94,7 @@ const ExplorerContainer = (props) => {
           onClick={handleGoBack}
         ></img>
         <div className=" flex border border-gray-400  w-3/4 sm:w-full h-full">
-          <img className=" sm:ml-0 sm:h-10 w-8 ml-2" src="./images/icons/folder.ico"></img>
+          <img className=" sm:ml-0 sm:hidden w-8 ml-2" src="./images/icons/folder.ico"></img>
           <span className="sm:w-full w-full p-2 flex justify-evenly items-center">
             <span>This PC</span>
             {showState.showSelectedProject &&
