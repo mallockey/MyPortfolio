@@ -41,6 +41,17 @@ input:focus {
   flex: 1 0 auto;
 }
 
+.projectListItem {
+  width: 66%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.projectListItem:hover {
+  background-color: #9ca3af;
+}
+
 .folderList {
   display: flex;
   margin-left: 1rem;

@@ -4,7 +4,7 @@ import ToolBar from './ToolBar'
 import DocumentsContainer from './DocumentsContainer'
 import projectInfo from '../data/projects'
 import projects from '../data/projects'
-import ProjectList from './ProjectList'
+import ProjectListItem from './ProjectListItem'
 import { handleSingleClick, clearSearchResults } from '../utils/functions'
 import LeftSidePanel from './LeftSidePanel'
 
@@ -20,7 +20,6 @@ const ExplorerContainer = (props) => {
     let searchableItemsElements = document.getElementsByClassName('searchAble')
     let testsearchableItemsElements = Array.from(searchableItemsElements)
 
-    console.log(searchableItemsElements)
     let searchResults = testsearchableItemsElements.filter((item) =>
       item.getAttribute('searchterm').toLowerCase().includes(event.target.value.toLowerCase()),
     )
@@ -52,14 +51,10 @@ const ExplorerContainer = (props) => {
     }
   }
 
-  function handleDblClick(event) {
+  function handleDblClick(event, id) {
     let temp = projectInfo.filter((project) => {
-      return project.id === event.target.parentElement.id
+      return project.id === id
     })
-
-    if (temp.length === 0) {
-      return
-    }
 
     setSelectedProject(temp[0])
     setShowState({
@@ -133,7 +128,7 @@ const ExplorerContainer = (props) => {
         </div>
         <div
           id="searchBar"
-          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1"
+          className="w-full h-full flex items-center border border-gray-400 bg-gray-800 flex-1 sm:h-16"
         >
           <img className="icon p-1.5" src="./images/icons/search.ico"></img>
           <input
@@ -178,7 +173,7 @@ const ExplorerContainer = (props) => {
             <div id="allProjects" className="allProjects sm:h-full">
               {projects.map((project) => {
                 return (
-                  <ProjectList
+                  <ProjectListItem
                     key={Math.random()}
                     project={project}
                     onDoubleClick={handleDblClick}
