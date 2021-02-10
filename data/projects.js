@@ -18,7 +18,7 @@ module.exports = [
     size: '1.3gb',
     description:
       'My personal blog where I talk tech and other things that interest me <br><br> Notable Features/Tech Used: <ul><li>React Hooks</li><li>Next JS</li><li>Pagination</li><li>Supabase</li></ul>',
-    link: 'https://the-byte-size-blog.vercel.app/',
+    link: 'https://bytesizeblog.vercel.app/',
     code: 'https://github.com/mallockey/The-Byte-Size-Blog',
   },
   {
