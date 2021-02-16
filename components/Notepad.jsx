@@ -9,7 +9,7 @@ const Notepad = (props) => {
     >
       <div id="title" className="flex items-center justify-between">
         <div className="flex">
-          <img className="icon sm:w-4 sm:h-4" src="./images/icons/notepad.jpg"></img>
+          <img className="icon sm:w-4 sm:h-4" src="./images/icons/notepad.ico"></img>
           <span className="pl-2 pr-2">{props.project.title} - Notepad</span>
         </div>
         <img
@@ -26,7 +26,7 @@ const Notepad = (props) => {
         <span className="notepadToolbarItem sm:pl-0 sm:pr-0">Help</span>
       </div>
       <div id="textArea" className="flex border-t flex-1">
-        <span>{parse(props.project.description)}</span>
+        <span className="p-4">{parse(props.project.description)}</span>
       </div>
       <div
         id="notepadFooter"

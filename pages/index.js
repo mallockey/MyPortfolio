@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Head>
         <title>Joshua Melo - Portfolio</title>
-        <link rel="icon" href="/static/favicon.ico" />
+        <link rel="icon" href="/images/favicon.png" />
         <meta property="og:title" content="Joshua Melo - Portfolio" />
         <meta property="og:image" content="/images/pageImage.PNG" />
         <meta property="og:url" content="https://joshuamelo.vercel.app/" />

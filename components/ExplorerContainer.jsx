@@ -76,7 +76,7 @@ const ExplorerContainer = (props) => {
 
   return (
     <div className="flex flex-col text-white w-full h-full relative">
-      <div id="toolbar" className=" bg-gray-600 flex justify-between sm:h-24 h-12">
+      <div id="toolbar" className=" bg-gray-600 flex justify-between sm:h-12 h-12">
         <div className="flex items-center">
           <img className="w-8 p-2" src="./images/tech/vscode.png"></img>
           <span>Open Folder</span>
@@ -204,9 +204,13 @@ const ExplorerContainer = (props) => {
       <div id="footer" className="bg-gray-600 flex items-center p-4 justify-end">
         <span>Folder:</span>
         <div className=" flex border border-gray-400 bg-gray-800 h-10 items-center  w-2/3 pl-2 ml-2 sm:h-8">
-          {selectedProject
+          {showState.showDocuments === false &&
+          showState.showAllProjects === false &&
+          showState.showSelectedProject === true
             ? selectedProject.title
-            : showState.showDocuments
+            : showState.showDocuments === true &&
+              showState.showAllProjects === false &&
+              showState.showSelectedProject === false
             ? 'Documents'
             : 'Projects'}
         </div>
