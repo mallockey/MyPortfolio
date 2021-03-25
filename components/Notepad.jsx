@@ -1,22 +1,30 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import parse from 'html-react-parser'
+import {makeDraggable} from '../utils/functions'
 
 const Notepad = (props) => {
+
+  useEffect(() => {
+    makeDraggable("notepad")
+  },[])
+  
   return (
     <div
       id="notepad"
-      className="sm:h-full sm:w-full absolute flex flex-col w-2/3 top-0 h-2/3 bg-white text-black"
+      className="sm:ml-12 sm:items-center absolute flex flex-col w-2/3 top-0 h-2/3 mt-10 bg-white text-black"
     >
-      <div id="title" className="flex items-center justify-between">
-        <div className="flex">
-          <img className="icon sm:w-4 sm:h-4" src="./images/icons/notepad.ico"></img>
-          <span className="pl-2 pr-2">{props.project.title} - Notepad</span>
+      <div id="title" className="flex items-start w-full justify-stretch pb-2">
+        <div className="flex w-full">
+          <img className="icon h-8 mr-1" src="./images/icons/notepad.ico"></img>
+          <span className="pl-2 pr-2 flex items-center">{props.project.title} - Notepad</span>
         </div>
-        <img
-          className="icon hover:bg-red-600"
-          src="./images/icons/icon-close.svg"
-          onClick={props.setShowDescription}
-        ></img>
+        <div className="flex w-full justify-end">
+          <img
+            className="icon hover:bg-red-600"
+            src="./images/icons/icon-close.svg"
+            onClick={props.setShowDescription}
+          ></img>
+        </div>
       </div>
       <div id="toolbar" className=" sm:w-full flex w-1/4 sm:p-0 justify-between p-2">
         <span className="notepadToolbarItem sm:pl-0 sm:pr-0">File</span>

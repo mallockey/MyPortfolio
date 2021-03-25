@@ -33,17 +33,6 @@ module.exports = [
     code: 'https://github.com/mallockey/broadenmedia',
   },
   {
-    id: 'frontEndHappyHourFolder',
-    title: 'FEHH - Clone',
-    date: 'December, 2020',
-    type: 'React App',
-    size: '150mb',
-    description:
-      'A clone of Front End Happy hours landing page.<br><br> Notable Features/Tech Used: <ul><li>Flexbox</li><li>Responsive Design</li></ul>',
-    link: 'https://frontendhappyhour-clone.herokuapp.com/',
-    code: 'https://github.com/mallockey/frontendhappyhour-clone',
-  },
-  {
     id: 'myportfolio',
     title: 'My Portfolio',
     date: 'January, 2021',
