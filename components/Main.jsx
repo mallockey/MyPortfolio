@@ -37,7 +37,7 @@ const Main = () => {
       <div className="flex flex-col h-full">
         <div
           id="allProjectsContainer"
-          className=" flex items-center justify-center p-8 h-full sm:p-0"
+          className=" flex items-center justify-center p-4 h-full sm:p-0"
         >
           {showExplorer ? (
             <ExplorerContainer

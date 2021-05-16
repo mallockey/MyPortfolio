@@ -3,8 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      sm: { min: '200px', max: '1400px' },
-      '2xl': { min: '1536px' },
+      sm: { min: '200px', max: '1000px' },
     },
     extend: {
       backgroundImage: (theme) => ({

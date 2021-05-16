@@ -73,12 +73,6 @@ input:focus {
   width: 1.5rem;
 }
 
-.notepadFooterItem {
-  border-right: 2px;
-  padding-right: 2rem;
-  padding-left: 2rem;
-}
-
 .notepadToolbarItem {
   padding-left: 2rem;
   padding-right: 2rem;

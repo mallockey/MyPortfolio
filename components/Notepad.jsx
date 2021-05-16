@@ -1,17 +1,16 @@
-import React, {useEffect, useRef} from 'react'
+import React, { useEffect, useRef } from 'react'
 import parse from 'html-react-parser'
-import {makeDraggable} from '../utils/functions'
+import { makeDraggable } from '../utils/functions'
 
 const Notepad = (props) => {
-
   useEffect(() => {
-    makeDraggable("notepad")
-  },[])
-  
+    makeDraggable('notepad')
+  }, [])
+
   return (
     <div
       id="notepad"
-      className="sm:ml-12 sm:items-center absolute flex flex-col w-2/3 top-0 h-2/3 mt-10 bg-white text-black"
+      className="sm:ml-12 sm:items-center absolute flex flex-col w-2/3 top-0 mt-10 bg-white text-black"
     >
       <div id="title" className="flex items-start w-full justify-stretch pb-2">
         <div className="flex w-full">
@@ -36,14 +35,10 @@ const Notepad = (props) => {
       <div id="textArea" className="flex border-t flex-1">
         <span className="p-4">{parse(props.project.description)}</span>
       </div>
-      <div
-        id="notepadFooter"
-        className="bg-gray-100 border-t-2 flex sm:w-full sm:flex sm:justify-around "
-      >
-        <div id="pointlessLine" className=" flex w-2/3 border-r-2  sm:hidden"></div>
-        <span className="notepadFooterItem sm:p-0">Ln 1, Col 1</span>
-        <span className="notepadFooterItem sm:p-0">100%</span>
-        <span className="notepadFooterItem sm:p-0">UTF-GR8</span>
+      <div id="notepadFooter" className="bg-gray-100 border-t-2 flex w-full justify-around ">
+        <span className="p-0">Ln 1, Col 1</span>
+        <span className="p-0">100%</span>
+        <span className="p-0">UTF-GR8</span>
       </div>
     </div>
   )
