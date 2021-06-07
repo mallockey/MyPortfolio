@@ -2,7 +2,8 @@ module.exports = [
   {
     id: 'resume',
     searchterm: 'Resume',
-    link: 'https://docs.google.com/document/d/1kMzTsk53F9mfNpbOS-a1Y1Xa1NIbh8DZJf8Bey6d9j8',
+    link:
+      'https://docs.google.com/document/d/1DDFBYbUuEiTk6AdDt_A1cWSy4FxuujIf9rsMv8f7Wds/edit?usp=sharing',
     image: './images/icons/filetype_pdf.ico',
   },
   {
