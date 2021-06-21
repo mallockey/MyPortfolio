@@ -33,6 +33,17 @@ module.exports = [
     code: 'https://github.com/mallockey/broadenmedia',
   },
   {
+    id: 'dataStructures',
+    title: 'Data Structures',
+    date: 'June ,2021',
+    type: 'Node JS / Testing',
+    size: '110mb',
+    description:
+      'My implementation of common data structures and algorithims <br><br> Notable Features/Tech Used: <ul><li>Node JS</li><li>Jest</li><ul>',
+    link: 'https://github.com/mallockey/DataStructures',
+    code: 'https://github.com/mallockey/DataStructures',
+  },
+  {
     id: 'myportfolio',
     title: 'My Portfolio',
     date: 'January, 2021',
