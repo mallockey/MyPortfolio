@@ -33,6 +33,16 @@ module.exports = [
     code: 'https://github.com/mallockey/broadenmedia',
   },
   {
+    id: 'texasNodeem',
+    title: 'Texas Nodem',
+    date: 'July 2021',
+    type: 'Node JS App',
+    size: '120kb',
+    description: 'A console version of Texas Holdem',
+    link: 'https://github.com/mallockey/TexasNodem',
+    code: 'https://github.com/mallockey/TexasNodem',
+  },
+  {
     id: 'dataStructures',
     title: 'Data Structures',
     date: 'June, 2021',
