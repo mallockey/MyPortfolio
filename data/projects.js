@@ -6,7 +6,7 @@ module.exports = [
     type: 'React App',
     size: '1.3gb',
     description:
-      'My personal blog where I talk tech and other things that interest me <br><br> Notable Features/Tech Used: <ul><li>React Hooks</li><li>Next JS</li><li>Pagination</li><li>Supabase</li></ul>',
+      'My personal blog where I talk tech and other things that interest me <br><br> Notable Features/Tech Used: <ul><li>TypeScript</li><li>React Hooks</li><li>Next JS</li></ul>',
     link: 'https://bytesizeblog.dev/',
     code: 'https://github.com/mallockey/The-Byte-Size-Blog',
   },
@@ -51,7 +51,7 @@ module.exports = [
     size: '3.2kb',
     description:
       'A PowerShell script that installs Office 365 on a workstation with parameters that talor the install to your specific needs.  <br><br> Notable Features/Tech Used: <ul><li>Web Scraping</li><li>In place XML customization</li></ul>',
-    link: 'https://www.powershellgallery.com/packages/Install-Office365Suite/1.2',
+    link: 'https://www.powershellgallery.com/packages/Install-Office365Suite/1.3',
     code: 'https://github.com/mallockey/Install-Office365Suite',
   },
 ]
