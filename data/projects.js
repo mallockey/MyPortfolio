@@ -22,6 +22,16 @@ module.exports = [
     code: 'https://github.com/mallockey/broadenmedia',
   },
   {
+    id: 'powerShellOnline',
+    title: 'PowerShell Online',
+    date: 'March, 2022',
+    type: 'React App / Container',
+    size: '179mb',
+    description: 'An online PowerShell interpreter using React-Monaco editor.',
+    link: 'https://powershell-online.vercel.app/',
+    code: 'https://github.com/mallockey/powershell-online',
+  },
+  {
     id: 'myportfolio',
     title: 'My Portfolio',
     date: 'January, 2021',
