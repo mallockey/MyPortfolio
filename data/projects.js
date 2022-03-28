@@ -43,17 +43,6 @@ module.exports = [
     code: 'https://github.com/mallockey/myportfolio',
   },
   {
-    id: 'getAlbumsFromWiki',
-    title: 'Get Albums From Wiki',
-    date: 'October, 2020',
-    type: 'PowerShell Script',
-    size: '5.81kb',
-    description:
-      'A PowerShell webscraper that gets music albums from Wikipedia and formats it into a table. <br><br> Notable Features/Tech Used: <ul><li>Web Scraping</li><li>Custom Cache function</li></ul>',
-    link: 'https://www.powershellgallery.com/packages/Get-AlbumsFromWiki/1.0',
-    code: 'https://github.com/mallockey/Get-AlbumsFromWiki',
-  },
-  {
     id: 'installOffice365',
     title: 'Install Office 365',
     date: 'December, 2019',
