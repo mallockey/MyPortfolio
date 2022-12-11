@@ -53,4 +53,14 @@ module.exports = [
     link: 'https://www.powershellgallery.com/packages/Install-Office365Suite/1.3',
     code: 'https://github.com/mallockey/Install-Office365Suite',
   },
+  {
+    id: 'mariokartrandommap',
+    title: "Mario Kart 64 Random Map Selector",
+    date: 'December 2022',
+    type: 'React App',
+    size: '112mb',
+    description: 'A random map selector for Mario Kart 64',
+    link: 'https://mariokart64randommap.vercel.app',
+    code: 'https://github.com/mallockey/MarioKart64RandomMapSelector'
+  }
 ]
